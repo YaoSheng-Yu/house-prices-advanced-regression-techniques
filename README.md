@@ -50,7 +50,8 @@ Direct median encoding can sometimes lead to overfitting, particularly when a ca
 $$ \text{Smoothed Value} = \frac{n \times \text{Category Median} + m \times \text{Overall Median}}{n + m} $$
 
 Where:
-- The weighted sum is a combination of how many times the category appears and a smoothing parameter.
+- \( n \) is the number of times the category appears.
+- \( m \) is a smoothing parameter.
 
 ### Adding Random Noise:
 
