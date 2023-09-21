@@ -1,12 +1,12 @@
 # house-prices-advanced-regression-techniques
 
 ## Index
-1. [Introduction](#introduction)
-2. [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
-3. [Data Encoding](#data-encoding)
-4. [Feature Selection](#feature-selection)
-5. [Model Building and Evaluation](#model-building)
-6. [Results](#results)
+1. [Introduction](#1-introduction)
+2. [Exploratory Data Analysis (EDA)](#2-exploratory-data-analysis-eda)
+3. [Data Encoding](#3-data-encoding)
+4. [Feature Selection](#4-feature-selection)
+5. [Model Building and Evaluation](#5-model-building-and-evaluation)
+6. [Results](#6-results)
 
 ## 1. Introduction
 
