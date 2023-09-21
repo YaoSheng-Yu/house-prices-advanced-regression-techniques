@@ -7,7 +7,6 @@
 4. [Feature Selection](#4-feature-selection)
 5. [Model Building and Evaluation](#5-model-building-and-evaluation)
 6. [Conclusion](#6-conclusion)
-[Tools & Libraries](Tools-&-Libraries)
 
 ## 1. Introduction
 
