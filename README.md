@@ -37,17 +37,27 @@ Through EDA, we gain valuable insights into the data's characteristics and chall
 
 ## 3. Encoding Categorical Features
 
-In the dataset, the distinction between numeric and categorical variables is almost even, with 36 numeric and 33 categorical variables. Handling this significant portion of categorical data appropriately is pivotal. One common technique is to replace categories with their corresponding medians of the `SalePrice`. 
+Handling categorical data is crucial in this dataset, especially considering the split of numeric to categorical features is 36:33, indicating a significant portion is categorical. In many machine learning models, such categorical data can't be ingested in its raw form and needs transformation to a numerical format. For this dataset, I've chosen an advanced encoding technique.
 
-However, merely employing the median can potentially lead to overfitting, especially for categories with few samples. To combat this, I leveraged the "smoothed median encoding". The equation for the smoothed median is:
+### Median Encoding:
 
-\[ \text{Smoothed Value} = \frac{n \times \text{Category Median} + m \times \text{Global Median}}{n + m} \]
+Instead of employing the traditional one-hot or label encoding, I encoded each category with the median of the `SalePrice` associated with it. This method allows for capturing the intrinsic relationship a categorical variable might have with the target variable, `SalePrice`.
+
+### Smoothed Median Encoding:
+
+Direct median encoding can sometimes lead to overfitting, particularly when a category doesn't appear frequently in the dataset. To address this, I incorporated smoothed median encoding. This technique computes a weighted average between the median sale price of the category and the overall median sale price, as per the equation:
+
+\[ \text{Smoothed Value} = \frac{n \times \text{Category Median} + m \times \text{Overall Median}}{n + m} \]
 
 Where:
-- \( n \) is the total number of samples in that category.
-- \( m \) is a smoothing parameter, essentially a weight for the global median, ensuring we don't overfit to specific categories with fewer samples.
+- \( n \) is the number of times the category appears.
+- \( m \) is a smoothing parameter.
 
-Post encoding categories using the smoothed medians, I incorporated an additional twist: introducing random noise. Each encoded value was subjected to a random adjustment within the range of ±5% of its original value. This addition further aids in preventing the model from fixating on specific price points, improving its robustness and ability to generalize.
+### Adding Random Noise:
+
+To provide an additional layer against overfitting and to make the encoding less deterministic, I introduced random noise to the encoded values, adjusting each value by a factor within the range of ±5% of its original value. This ensures the encoded values, while indicative of their association with the sale price, aren't a perfect match, offering more generalization in models.
+
+By using this approach, I aim to capture the nuances within the categorical data while molding them for improved model predictions.
 
 
 ## 4. Feature Selection
