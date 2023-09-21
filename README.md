@@ -5,7 +5,7 @@
 2. [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
 3. [Data Encoding](#data-encoding)
 4. [Feature Selection](#feature-selection)
-5. [Model Building](#model-building)
+5. [Model Building and Evaluation](#model-building)
 6. [Results](#results)
 
 ## 1. Introduction
@@ -35,7 +35,7 @@ A deeper look into these visualizations reveals:
 
 Through EDA, we gain valuable insights into the data's characteristics and challenges, guiding our subsequent preprocessing steps.
 
-## 3. Encoding Categorical Features
+## 3. Data Encoding
 
 Handling categorical data is crucial in this dataset, especially considering the split of numeric to categorical features is 36:33, indicating a significant portion is categorical. In many machine learning models, such categorical data can't be ingested in its raw form and needs transformation to a numerical format. For this dataset, I've chosen an advanced encoding technique.
 
