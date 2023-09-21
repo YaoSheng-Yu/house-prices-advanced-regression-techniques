@@ -77,3 +77,27 @@ Combining the results from both methods, we found a significant overlap in the f
 
 This synergy in feature selection ensured that we captured the most relevant aspects of the data while keeping the model complexity in check.
 
+## 5. Model Building and Evaluation
+
+After encoding and feature selection, I delved into building models to predict house prices. I explored three regression models: Random Forest, SVM, and Gradient Boosting Regression. Below are the performances of these models:
+
+| Model                     | Train RMSLE | Prediction RMSLE |
+|---------------------------|-------------|------------------|
+| Random Forest             | 0.14403     | 0.15649          |
+| SVM                       | 0.41367     | 0.41631          |
+| Gradient Boosting Regression | 0.14558 | 0.14172      |
+
+**Model Analysis:**
+- **Gradient Boosting Regression (GBR)** proved to be the most effective. Its strength lies in its resilience to outliers, and it performs optimally on small to medium-sized datasets. Given our dataset dimensions of approximately 1500x36, this model is well-suited.
+- **Random Forest** performed admirably on the training data, but there's evidence of slight overfitting when it's applied to new, unseen data. 
+- **Support Vector Machines (SVM)** didn't fare as well, likely due to its hyper-parameter sensitivity. Given the dataset's size and SVM's nature, it was not the optimal choice for this task.
+
+**Grid Search and Final Model Selection:**
+
+To further refine the model's performance, I employed grid search for hyperparameter tuning, particularly for the Gradient Boosting Regression model. The final parameters chosen were:
+
+GradientBoostingRegressor(learning_rate=0.05, max_depth=4, max_features='sqrt', n_estimators=300, random_state=42, subsample=0.8)
+
+These parameters were selected after an exhaustive search, ensuring that the model not only fits the training data well but also generalizes effectively to unseen data. The model's robustness and ability to handle outliers make it the ideal choice for this dataset.
+
+In conclusion, the Gradient Boosting Regression was selected for the final predictions due to its superior generalization capability and robustness against outliers.
