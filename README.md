@@ -35,7 +35,21 @@ A deeper look into these visualizations reveals:
 
 Through EDA, we gain valuable insights into the data's characteristics and challenges, guiding our subsequent preprocessing steps.
 
-## 3. Feature Selection
+## 3. Encoding Categorical Features
+
+Handling categorical data is crucial in this dataset, especially considering the split of numeric to categorical features is 36:33, indicating a significant portion is categorical. I opted to replace each category with its corresponding median of the `SalePrice`. 
+
+However, just using the median might lead to overfitting, especially when a category has very few samples. To tackle this, I employed the "smoothed median encoding" technique. The equation for smoothed median is:
+
+\[ \text{Smoothed Value} = \frac{n \times \text{Category Median} + m \times \text{Global Median}}{n + m} \]
+
+Where:
+- \( n \) is the total number of samples in that category.
+- \( m \) is a smoothing parameter (a weight for the global median to avoid overfitting). 
+
+After encoding the categories with their smoothed medians, I added an additional layer of complexity: random noise. This is a small random adjustment, within ±5% of the original value, to ensure that the model doesn't overly fixate on specific price points, enhancing the generalization capability.
+
+## 4. Feature Selection
 
 Feature selection is a critical step in any machine learning project. Choosing the right subset of features can lead to simpler, more interpretable, and often more accurate models. In the context of this housing dataset, with its rich set of 79 variables, the challenge was to distill the essence of the data while discarding redundant or irrelevant information.
 
