@@ -19,7 +19,7 @@ Our primary target variable, `SalePrice`, showcases a slightly right-skewed dist
 
 ![Sale Price Distribution](plots/price_dist.png)
 
-This shape indicates that while many houses are clustered around the median price, a few sell for considerably higher prices. Fortunately, the distribution doesn't reveal significant outliers, which means our models won't be unduly influenced by extreme values—leading to a more generalized and reliable prediction.
+This right_skewed shape indicates that many houses are clustered around the median price with only a few sell for considerably higher prices. Fortunately, the distribution doesn't reveal significant outliers, which means our models won't be unduly influenced by extreme values—leading to a more generalized and reliable prediction.
 
 ### Missing Data Insights:
 The patterns of missing data across features are captured vividly in the two plots:
