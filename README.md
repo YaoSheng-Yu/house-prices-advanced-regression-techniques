@@ -47,8 +47,7 @@ Instead of employing the traditional one-hot or label encoding, I encoded each c
 
 Direct median encoding can sometimes lead to overfitting, particularly when a category doesn't appear frequently in the dataset. To address this, I incorporated smoothed median encoding. This technique computes a weighted average between the median sale price of the category and the overall median sale price, as per the equation:
 
-\[ \text{Smoothed Value} = \frac{n \times \text{Category Median} + m \times \text{Overall Median}}{n + m} \]
-
+\[ \text{Smoothed Value} = \frac{\text{Weighted Sum of Category Median and Overall Median}}{\text{Combined Weight}} \]
 Where:
 - \( n \) is the number of times the category appears.
 - \( m \) is a smoothing parameter.
