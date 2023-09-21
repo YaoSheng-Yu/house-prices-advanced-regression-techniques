@@ -45,19 +45,18 @@ Instead of employing the traditional one-hot or label encoding, I encoded each c
 
 ### Smoothed Median Encoding:
 
-Direct median encoding can sometimes lead to overfitting, particularly when a category doesn't appear frequently in the dataset. To address this, I incorporated smoothed median encoding. This technique computes a weighted average between the median sale price of the category and the overall median sale price, as per the equation:
+Direct median encoding can sometimes lead to overfitting, particularly when a category doesn't appear frequently in the dataset. To address this, I incorporated smoothed median encoding. The principle is straightforward:
 
-\[ \text{Smoothed Value} = \frac{\text{Weighted Sum of Category Median and Overall Median}}{\text{Combined Weight}} \]
+$$ \text{Smoothed Value} = \frac{n \times \text{Category Median} + m \times \text{Overall Median}}{n + m} $$
+
 Where:
-- \( n \) is the number of times the category appears.
-- \( m \) is a smoothing parameter.
+- The weighted sum is a combination of how many times the category appears and a smoothing parameter.
 
 ### Adding Random Noise:
 
 To provide an additional layer against overfitting and to make the encoding less deterministic, I introduced random noise to the encoded values, adjusting each value by a factor within the range of ±5% of its original value. This ensures the encoded values, while indicative of their association with the sale price, aren't a perfect match, offering more generalization in models.
 
 By using this approach, I aim to capture the nuances within the categorical data while molding them for improved model predictions.
-
 
 ## 4. Feature Selection
 
