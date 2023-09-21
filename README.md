@@ -37,17 +37,18 @@ Through EDA, we gain valuable insights into the data's characteristics and chall
 
 ## 3. Encoding Categorical Features
 
-Handling categorical data is crucial in this dataset, especially considering the split of numeric to categorical features is 36:33, indicating a significant portion is categorical. I opted to replace each category with its corresponding median of the `SalePrice`. 
+In the dataset, the distinction between numeric and categorical variables is almost even, with 36 numeric and 33 categorical variables. Handling this significant portion of categorical data appropriately is pivotal. One common technique is to replace categories with their corresponding medians of the `SalePrice`. 
 
-However, just using the median might lead to overfitting, especially when a category has very few samples. To tackle this, I employed the "smoothed median encoding" technique. The equation for smoothed median is:
+However, merely employing the median can potentially lead to overfitting, especially for categories with few samples. To combat this, I leveraged the "smoothed median encoding". The equation for the smoothed median is:
 
 \[ \text{Smoothed Value} = \frac{n \times \text{Category Median} + m \times \text{Global Median}}{n + m} \]
 
 Where:
 - \( n \) is the total number of samples in that category.
-- \( m \) is a smoothing parameter (a weight for the global median to avoid overfitting). 
+- \( m \) is a smoothing parameter, essentially a weight for the global median, ensuring we don't overfit to specific categories with fewer samples.
 
-After encoding the categories with their smoothed medians, I added an additional layer of complexity: random noise. This is a small random adjustment, within ±5% of the original value, to ensure that the model doesn't overly fixate on specific price points, enhancing the generalization capability.
+Post encoding categories using the smoothed medians, I incorporated an additional twist: introducing random noise. Each encoded value was subjected to a random adjustment within the range of ±5% of its original value. This addition further aids in preventing the model from fixating on specific price points, improving its robustness and ability to generalize.
+
 
 ## 4. Feature Selection
 
