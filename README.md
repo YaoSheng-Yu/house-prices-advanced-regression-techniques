@@ -6,7 +6,8 @@
 3. [Data Encoding](#3-data-encoding)
 4. [Feature Selection](#4-feature-selection)
 5. [Model Building and Evaluation](#5-model-building-and-evaluation)
-6. [Results](#6-results)
+6. [Conclusion](#6-conclusion)
+[Tools & Libraries](Tools-&-Libraries)
 
 ## 1. Introduction
 
@@ -100,4 +101,24 @@ GradientBoostingRegressor(learning_rate=0.05, max_depth=4, max_features='sqrt', 
 
 These parameters were selected after an exhaustive search, ensuring that the model not only fits the training data well but also generalizes effectively to unseen data. The model's robustness and ability to handle outliers make it the ideal choice for this dataset.
 
-In conclusion, the Gradient Boosting Regression was selected for the final predictions due to its superior generalization capability and robustness against outliers.
+## 6. Conclusion
+
+After conducting a comprehensive analysis of the Ames Housing dataset, I successfully built a model capable of predicting house prices with an RMSLE of 0.14172 on the test dataset. This project highlighted the importance of data preprocessing, exploratory data analysis, and the selection of the right machine learning model. Gradient Boosting Regression, with its ability to be robust to outliers and handle datasets of this size effectively, proved to be the most effective model among the ones tested.
+
+### Adaptation to Underfitting and Overfitting
+The closely matched RMSLE values between the training model and the actual test dataset indicate that our model does not suffer from overfitting or underfitting. Several reasons contribute to this balanced performance:
+
+1. **Normal Distribution of Sale Price**: The Sale Price follows a near-normal distribution. This ensures that the model isn't biased towards prices too distant from the mean.
+2. **Optimal Model Complexity**: The use of feature selection to choose 36 significant features seems to strike an appropriate balance between accuracy and model complexity.
+3. **Cross-Validation Strategy**: Employing a 5-fold cross-validation approach ensures that outliers or anomalous data points don't disproportionately influence the model's performance.
+
+Future work could involve experimenting with more advanced models, additional feature engineering, or employing deep learning techniques to further improve the prediction accuracy. Additionally, external datasets could be integrated to include factors like economic indicators or neighborhood development indexes, which might influence housing prices.
+
+## Tools & Libraries
+
+This project was implemented using Python and its rich ecosystem of data science libraries. The primary tools and libraries used include:
+
+- **Pandas**: For data manipulation and analysis.
+- **NumPy**: For numerical operations.
+- **Scikit-learn**: For building and evaluating machine learning models.
+- **Seaborn & Matplotlib**: For data visualization.
