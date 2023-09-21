@@ -34,3 +34,22 @@ A deeper look into these visualizations reveals:
 - Interestingly, most of the missing values aren't randomly spread across the dataset. They're concentrated in specific rows, indicating potential issues in the data collection or entry process for those records. Given this pattern, it's prudent to remove such rows to ensure the robustness of our predictive models.
 
 Through EDA, we gain valuable insights into the data's characteristics and challenges, guiding our subsequent preprocessing steps.
+
+## 3. Feature Selection
+
+Feature selection is a critical step in any machine learning project. Choosing the right subset of features can lead to simpler, more interpretable, and often more accurate models. In the context of this housing dataset, with its rich set of 79 variables, the challenge was to distill the essence of the data while discarding redundant or irrelevant information.
+
+We employed a two-pronged strategy for feature selection:
+
+### 1. **Feature Importance using Random Forests**:
+Random Forests can rank features based on their importance in predicting the target variable. By training a Random Forest on our data and examining the importance of each feature, we identified those features that had the most impact on predicting house prices.
+
+### 2. **Recursive Feature Elimination (RFE) with Gradient Boosting Machine (GBM)**:
+RFE is a method that fits the model repeatedly on iterative subsets of features. At each iteration, it discards the least important feature until the desired number of features is reached. For this, we used the powerful GBM as our estimator. GBM, being a gradient boosting method, builds the model in a stage-wise fashion optimizing for accuracy, which makes it an excellent choice for RFE.
+
+Combining the results from both methods, we found a significant overlap in the features (36 out of 40) they deemed important. This provided us with a robust, reliable set of 36 features that were used for building our final predictive model. The harmony between the two feature selection methods boosted our confidence in the selected subset.
+
+![Top Features](plots/features_selection.png) 
+
+This synergy in feature selection ensured that we captured the most relevant aspects of the data while keeping the model complexity in check.
+
